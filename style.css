@@ -1,0 +1,32 @@
+/* .top {
+  width: 600px;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+} */
+
+.middle {
+  width: 600px;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bottom {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.square {
+  width: 100px;
+  height: 100px;
+  border-style: solid;
+  border-color: black;
+}
+
+#question {
+  width: 8000px;
+  height: 100px;
+  display: flex;
+}
