@@ -27,6 +27,51 @@
 
 #question {
   width: 8000px;
-  height: 100px;
+  height: 200px;
   display: flex;
+}
+
+#eleven {
+  background-image: url("images/redsquare.png");
+  background-size: cover;
+}
+
+#twelve {
+  background-image: url("images/redcircle.png");
+  background-size: cover;
+}
+
+#thirteen {
+  background-image: url("images/redtriangle.png");
+  background-size: cover;
+}
+
+#fourteen {
+  background-image: url("images/bluesquare.png");
+  background-size: cover;
+}
+
+#fifteen {
+  background-image: url("images/bluecircle.png");
+  background-size: cover;
+}
+
+#sixteen {
+  background-image: url("images/bluetriangle.png");
+  background-size: cover;
+}
+
+#seventeen {
+  background-image: url("images/yellowsquare.png");
+  background-size: cover;
+}
+
+#eighteen {
+  background-image: url("images/yellowcircle.png");
+  background-size: cover;
+}
+
+#nineteen {
+  background-image: url("images/yellowtriangle.png");
+  background-size: cover;
 }

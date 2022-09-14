@@ -1,40 +1,44 @@
 "use strict";
 
-const cardRedSquare = document.createElement("img");
-cardRedSquare.src = "images/redsquare.png";
-document.body.appendChild(cardRedSquare);
+function startGameSquareOne() {}
 
-const cardRedCircle = document.createElement("img");
-cardRedCircle.src = "images/redcircle.png";
-document.body.appendChild(cardRedCircle);
+const cardRedSquare = document.getElementById("one");
 
-const cardRedTriangle = document.createElement("img");
-cardRedTriangle.src = "images/redtriangle.png";
-document.body.appendChild(cardRedTriangle);
+// const cardRedSquare = document.createElement("img");
+// cardRedSquare.src = "images/redsquare.png";
+// document.body.appendChild(cardRedSquare);
 
-const cardBlueSquare = document.createElement("img");
-cardBlueSquare.src = "images/bluesquare.png";
-document.body.appendChild(cardBlueSquare);
+// const cardRedCircle = document.createElement("img");
+// cardRedCircle.src = "images/redcircle.png";
+// document.body.appendChild(cardRedCircle);
 
-const cardBlueCircle = document.createElement("img");
-cardBlueCircle.src = "images/bluecircle.png";
-document.body.appendChild(cardBlueCircle);
+// const cardRedTriangle = document.createElement("img");
+// cardRedTriangle.src = "images/redtriangle.png";
+// document.body.appendChild(cardRedTriangle);
 
-const cardBlueTriangle = document.createElement("img");
-cardBlueTriangle.src = "images/bluetriangle.png";
-document.body.appendChild(cardBlueTriangle);
+// const cardBlueSquare = document.createElement("img");
+// cardBlueSquare.src = "images/bluesquare.png";
+// document.body.appendChild(cardBlueSquare);
 
-const cardYellowSquare = document.createElement("img");
-cardYellowSquare.src = "images/yellowsquare.png";
-document.body.appendChild(cardYellowSquare);
+// const cardBlueCircle = document.createElement("img");
+// cardBlueCircle.src = "images/bluecircle.png";
+// document.body.appendChild(cardBlueCircle);
 
-const cardYellowCircle = document.createElement("img");
-cardYellowCircle.src = "images/yellowcircle.png";
-document.body.appendChild(cardYellowCircle);
+// const cardBlueTriangle = document.createElement("img");
+// cardBlueTriangle.src = "images/bluetriangle.png";
+// document.body.appendChild(cardBlueTriangle);
 
-const cardYellowTriangle = document.createElement("img");
-cardYellowTriangle.src = "images/yellowtriangle.png";
-document.body.appendChild(cardYellowTriangle);
+// const cardYellowSquare = document.createElement("img");
+// cardYellowSquare.src = "images/yellowsquare.png";
+// document.body.appendChild(cardYellowSquare);
+
+// const cardYellowCircle = document.createElement("img");
+// cardYellowCircle.src = "images/yellowcircle.png";
+// document.body.appendChild(cardYellowCircle);
+
+// const cardYellowTriangle = document.createElement("img");
+// cardYellowTriangle.src = "images/yellowtriangle.png";
+// document.body.appendChild(cardYellowTriangle);
 
 const cardArray = [
   cardRedSquare,
@@ -48,10 +52,23 @@ const cardArray = [
   cardYellowTriangle,
 ];
 
-function randomShapeColor() {
-  let randomPosition = shapeColor[Math.floor(Math.random() * 9)];
-  console.log(randomPosition);
-}
+const randomCard = cardArray[Math.floor(Math.random() * cardArray.length)];
+
+console.log(randomCard);
+
+const redSquareClick = document.getElementById("eleven");
+redSquareClick.addEventListener("click", function () {
+  alert("Hello World!");
+});
+
+// function questionDisplay() {
+//   for (let i = 0; i < 5; i++) {
+//     questionDisplay = document.body.appendChild(randomCard(i));
+//   }
+//   return console.log(questionDisplay);
+// }
+
+// questionDisplay();
 
 // const cardArray = [
 //   {
@@ -92,18 +109,19 @@ function randomShapeColor() {
 //   },
 // ];
 
-const questionDisplay = document.querySelector("#question");
+// const questionDisplay = document.querySelector("#question");
 
-function createQuestion() {
-  for (let i = 0; i < 5; i++) {
-    const card = document.createElement("img");
-    card.setAttribute("src", "images/yellowtriangle.png");
-    card.setAttribute("data-id", i);
-    questionDisplay.appendChild(card);
-  }
-}
+// function createQuestion() {
+//   for (let i = 0; i < 5; i++) {
+//     questionDisplay.appendChild(randomShapesColors(i));
+//     const card = document.createElement("img");
+//     card.setAttribute("src", "images/yellowtriangle.png");
+//     card.setAttribute("data-id", i);
+//     questionDisplay.appendChild(card);
+//   }
+// }
 
-createQuestion();
+// createQuestion();
 
 // const questionRow = [];
 
@@ -117,7 +135,7 @@ createQuestion();
 
 // const squares = document.querySelectorAll(".square");
 
-function showShapeColor() {
-  let timerId = null;
-  timerId = setInterval(randomShapeColor, 5000);
-}
+// function showShapeColor() {
+//   let timerId = null;
+//   timerId = setInterval(randomShapeColor, 5000);
+// }
