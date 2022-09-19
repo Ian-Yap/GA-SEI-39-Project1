@@ -1,141 +1,116 @@
 "use strict";
 
-function startGameSquareOne() {}
-
-const cardRedSquare = document.getElementById("one");
-
-// const cardRedSquare = document.createElement("img");
-// cardRedSquare.src = "images/redsquare.png";
-// document.body.appendChild(cardRedSquare);
-
-// const cardRedCircle = document.createElement("img");
-// cardRedCircle.src = "images/redcircle.png";
-// document.body.appendChild(cardRedCircle);
-
-// const cardRedTriangle = document.createElement("img");
-// cardRedTriangle.src = "images/redtriangle.png";
-// document.body.appendChild(cardRedTriangle);
-
-// const cardBlueSquare = document.createElement("img");
-// cardBlueSquare.src = "images/bluesquare.png";
-// document.body.appendChild(cardBlueSquare);
-
-// const cardBlueCircle = document.createElement("img");
-// cardBlueCircle.src = "images/bluecircle.png";
-// document.body.appendChild(cardBlueCircle);
-
-// const cardBlueTriangle = document.createElement("img");
-// cardBlueTriangle.src = "images/bluetriangle.png";
-// document.body.appendChild(cardBlueTriangle);
-
-// const cardYellowSquare = document.createElement("img");
-// cardYellowSquare.src = "images/yellowsquare.png";
-// document.body.appendChild(cardYellowSquare);
-
-// const cardYellowCircle = document.createElement("img");
-// cardYellowCircle.src = "images/yellowcircle.png";
-// document.body.appendChild(cardYellowCircle);
-
-// const cardYellowTriangle = document.createElement("img");
-// cardYellowTriangle.src = "images/yellowtriangle.png";
-// document.body.appendChild(cardYellowTriangle);
+let question = [];
+let answer = [];
 
 const cardArray = [
-  cardRedSquare,
-  cardRedCircle,
-  cardRedTriangle,
-  cardBlueSquare,
-  cardBlueCircle,
-  cardBlueTriangle,
-  cardYellowSquare,
-  cardYellowCircle,
-  cardYellowTriangle,
+  "cardRedSquare",
+  "cardRedCircle",
+  "cardRedTriangle",
+  "cardBlueSquare",
+  "cardBlueCircle",
+  "cardBlueTriangle",
+  "cardYellowSquare",
+  "cardYellowCircle",
+  "cardYellowTriangle",
 ];
 
-const randomCard = cardArray[Math.floor(Math.random() * cardArray.length)];
+const numCards = 5;
+const displayTime = 5000;
 
-console.log(randomCard);
+const ansButtons = document.getElementsByClassName("ans-button");
+const blanks = document.getElementsByClassName("blanks");
 
-const redSquareClick = document.getElementById("eleven");
-redSquareClick.addEventListener("click", function () {
-  alert("Hello World!");
-});
+for (let i = 0; i < ansButtons.length; i++) {
+  const button = ansButtons[i];
+  const id = button.id;
+  button.addEventListener("click", function (e) {
+    console.log(this.id);
+    const img = createImg(this.id);
+    const index = answer.length;
+    if (index < blanks.length) {
+      blanks[index].appendChild(img);
+      answer.push(this.id);
+    }
+  });
+}
 
-// function questionDisplay() {
-//   for (let i = 0; i < 5; i++) {
-//     questionDisplay = document.body.appendChild(randomCard(i));
-//   }
-//   return console.log(questionDisplay);
-// }
+function startGame() {
+  answer = [];
+  question = generateQuestion();
+  console.log("question", question);
+  showImages(question);
+  const timer = setTimeout(clearImages, displayTime);
+  // clearTimeout(timer);
+}
 
-// questionDisplay();
+function clearImages() {
+  for (let i = 0; i < blanks.length; i++) {
+    blanks[i].innerHTML = "";
+  }
+  console.log("clear");
+}
 
-// const cardArray = [
-//   {
-//     name: "redSquare",
-//     img: "images/redsquare.png",
-//   },
-//   {
-//     name: "redCircle",
-//     img: "images/redcircle.png",
-//   },
-//   {
-//     name: "redTriangle",
-//     img: "images/redtriangle.png",
-//   },
-//   {
-//     name: "blueSquare",
-//     img: "images/bluesquare.png",
-//   },
-//   {
-//     name: "blueCircle",
-//     img: "images/bluecircle.png",
-//   },
-//   {
-//     name: "blueTriangle",
-//     img: "images/blueTriangle.png",
-//   },
-//   {
-//     name: "yellowSquare",
-//     img: "images/yellowsquare.png",
-//   },
-//   {
-//     name: "yellowCircle",
-//     img: "images/yellowcircle.png",
-//   },
-//   {
-//     name: "yellowTriangle",
-//     img: "images/yellowtriangle.png",
-//   },
-// ];
+function showImages(images) {
+  for (let i = 0; i < blanks.length; i++) {
+    if (i < images.length) {
+      const img = createImg(images[i]);
+      blanks[i].innerHTML = "";
+      blanks[i].appendChild(img);
+    }
+  }
+}
 
-// const questionDisplay = document.querySelector("#question");
+function createImg(image) {
+  const img = document.createElement("img");
+  img.src = getImage(image);
 
-// function createQuestion() {
-//   for (let i = 0; i < 5; i++) {
-//     questionDisplay.appendChild(randomShapesColors(i));
-//     const card = document.createElement("img");
-//     card.setAttribute("src", "images/yellowtriangle.png");
-//     card.setAttribute("data-id", i);
-//     questionDisplay.appendChild(card);
-//   }
-// }
+  return img;
+}
 
-// createQuestion();
+function checkAnswer() {
+  if (answer.length < numCards) {
+    alert("Not enough cards selected");
+    return;
+  }
+  console.log("answer", answer);
+  for (let i = 0; i < numCards; i++) {
+    if (question[i] != answer[i]) {
+      alert("Wrong! Answer is " + answer);
+      return;
+    }
+  }
+  alert("Correct!");
+}
 
-// const questionRow = [];
+function generateQuestion() {
+  let listOfCards = [];
+  for (let i = 0; i < numCards; i++) {
+    const randomCard = cardArray[Math.floor(Math.random() * cardArray.length)];
+    listOfCards.push(randomCard);
+  }
+  return listOfCards;
+}
 
-// const answerRow = [];
-
-// const verifyAnswerRow = [];
-
-// function initialiseGame() {
-//   document.querySelector("#");
-// }
-
-// const squares = document.querySelectorAll(".square");
-
-// function showShapeColor() {
-//   let timerId = null;
-//   timerId = setInterval(randomShapeColor, 5000);
-// }
+function getImage(card) {
+  switch (card) {
+    case "cardRedSquare":
+      return "images/redsquare.png";
+    case "cardRedCircle":
+      return "images/redcircle.png";
+    case "cardRedTriangle":
+      return "images/redtriangle.png";
+    case "cardBlueSquare":
+      return "images/bluesquare.png";
+    case "cardBlueCircle":
+      return "images/bluecircle.png";
+    case "cardBlueTriangle":
+      return "images/bluetriangle.png";
+    case "cardYellowSquare":
+      return "images/yellowsquare.png";
+    case "cardYellowCircle":
+      return "images/yellowcircle.png";
+    case "cardYellowTriangle":
+      return "images/yellowtriangle.png";
+  }
+}

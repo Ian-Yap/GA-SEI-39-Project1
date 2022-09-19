@@ -1,15 +1,8 @@
-/* .top {
-  width: 600px;
-  height: 200px;
-  display: flex;
-  flex-wrap: wrap;
-} */
-
 .middle {
   width: 600px;
-  height: 200px;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 .bottom {
@@ -25,53 +18,59 @@
   border-color: black;
 }
 
+.square img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
 #question {
   width: 8000px;
   height: 200px;
   display: flex;
 }
 
-#eleven {
+#cardRedSquare {
   background-image: url("images/redsquare.png");
   background-size: cover;
 }
 
-#twelve {
+#cardRedCircle {
   background-image: url("images/redcircle.png");
   background-size: cover;
 }
 
-#thirteen {
+#cardRedTriangle {
   background-image: url("images/redtriangle.png");
   background-size: cover;
 }
 
-#fourteen {
+#cardBlueSquare {
   background-image: url("images/bluesquare.png");
   background-size: cover;
 }
 
-#fifteen {
+#cardBlueCircle {
   background-image: url("images/bluecircle.png");
   background-size: cover;
 }
 
-#sixteen {
+#cardBlueTriangle {
   background-image: url("images/bluetriangle.png");
   background-size: cover;
 }
 
-#seventeen {
+#cardYellowSquare {
   background-image: url("images/yellowsquare.png");
   background-size: cover;
 }
 
-#eighteen {
+#cardYellowCircle {
   background-image: url("images/yellowcircle.png");
   background-size: cover;
 }
 
-#nineteen {
+#cardYellowTriangle {
   background-image: url("images/yellowtriangle.png");
   background-size: cover;
 }
